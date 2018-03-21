@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #20232a;
+  height: 150px;
+  padding: 20px;
+  color: rgb(97, 218, 251);
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+img {
+  user-drag: none; 
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}

@@ -1,0 +1,58 @@
+.Cell {
+  width: 25px;
+  height: 25px;
+  border-radius: 2px;
+  margin: 2px;
+  background: #61dafb78;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 1px 0px rgba(50, 50, 50, 0.75);
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  font-size: 23px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.Cell:not(.opened):hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.Cell.opened {
+  background: #fff;
+}
+
+.Cell.blown:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 125%;
+  left: 11px;
+  top: -3px;
+  background: #ff0000;
+  transform: rotate(45deg)
+}
+
+.Cell.blown:after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 125%;
+  left: 11px;
+  top: -3px;
+  background: #ff0000;
+  transform: rotate(-45deg)
+}
+
+.blue {
+  color: #0000ff;
+}
+
+.green {
+  color: #4caf50;
+}
+
+.red {
+  color: #ff0000;
+}

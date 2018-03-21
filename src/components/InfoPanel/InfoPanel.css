@@ -1,0 +1,21 @@
+.info-panel {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #20232a;
+}
+
+.info-block {
+  display: flex;
+  align-items: center;
+}
+
+.info-block.left {
+  margin-left: -5px;
+  width: 66px;
+}
+
+.face-icon {
+  cursor: pointer;
+}
