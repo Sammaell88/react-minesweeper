@@ -45,6 +45,10 @@
   transform: rotate(-45deg)
 }
 
+.Cell.disabled {
+  pointer-events: none;
+}
+
 .blue {
   color: #0000ff;
 }

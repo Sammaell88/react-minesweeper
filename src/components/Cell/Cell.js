@@ -10,6 +10,7 @@ class Cell extends PureComponent {
     this.hasMine = props.hasMine;
     this.checkMinesAround = props.checkMinesAround;
     this.handleFlag = props.handleFlag;
+    this.checkGameStatus = props.checkGameStatus;
     this.endGame = props.endGame;
 
     this.state = {
@@ -21,8 +22,9 @@ class Cell extends PureComponent {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if(!this.hasMine && nextState.isOpened) {
+    if(!this.hasMine &&  !this.state.isOpened && nextState.isOpened) {
       this.checkMinesAround(this.props.y,this.props.x);
+      this.checkGameStatus();
     }
   }
 

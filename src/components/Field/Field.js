@@ -7,6 +7,8 @@ class Field extends Component {
   constructor(props) {
     super(props);
     this.gameStarted = false;
+    this.openedCells = 0;
+    this.cellsWithMines = 0;
   }
 
   render() {
@@ -16,6 +18,7 @@ class Field extends Component {
       matrix[i] = [];
       for (let j = 0; j < 10; j++) {
         let random = Math.round(Math.random()*10);
+        if(random < 2) this.cellsWithMines++;
         matrix[i][j] = <Cell key={`${i}-${j}`} 
                              ref={`${i}-${j}`}
                              y={i}
@@ -23,6 +26,7 @@ class Field extends Component {
                              hasMine={random < 2}
                              endGame={this.endGame.bind(this)} 
                              handleFlag={this.handleFlag.bind(this)}
+                             checkGameStatus={this.checkGameStatus.bind(this)}
                              checkMinesAround={this.checkMinesAround.bind(this)}/>;
       }
     }
@@ -84,15 +88,29 @@ class Field extends Component {
         }
       })
     }
+  }
 
+  checkGameStatus(state) {
+    this.openedCells++;
+    let unopenedCells = 100 - this.cellsWithMines - this.openedCells; 
+
+    if(!unopenedCells) {
+      this.winGame();
+    }
   }
 
   endGame() {
+    document.querySelector('.Field').classList.add('disabled');
     this.refs['info'].setState({gameover: true});
     for (let key in this.refs) {
       if(key !== 'info' && this.refs[key].props.hasMine)
         this.refs[key].setState({isOpened: true});
     }  
+  }
+
+  winGame() {
+    document.querySelector('.Field').classList.add('disabled');
+    this.refs['info'].setState({gamewin: true});
   }
 }
 

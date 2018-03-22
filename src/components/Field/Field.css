@@ -4,3 +4,7 @@
   width: 290px;
 }
 
+.Field.disabled .Cell {
+  pointer-events: none;
+}
+
